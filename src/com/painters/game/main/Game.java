@@ -24,7 +24,7 @@ public class Game extends Canvas implements Runnable {
 	public boolean running = false;
 	public int tickCount = 0;
 	
-	private BufferedImage image = new BufferedImage(WIDTH,HEIGHT, BufferedImage.TYPE_INT_RGB);
+	private BufferedImage image = new BufferedImage(WIDTH ,HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
 	public Game() {
@@ -51,7 +51,7 @@ public class Game extends Canvas implements Runnable {
 		
 		
 	}
-	
+	//The command that stops the game used later
 	private synchronized void stop() {
 		running = false;
 	}
@@ -110,13 +110,11 @@ public class Game extends Canvas implements Runnable {
 	
 	//Image
 	public void render() {
-		
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
 			createBufferStrategy(3);
 			return;
 		}
-		
 		Graphics g = bs.getDrawGraphics();
 		
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null); 
